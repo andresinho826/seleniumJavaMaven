@@ -1,3 +1,5 @@
+https://www.selenium.dev/
+https://www.youtube.com/@softwaretestingmentor
 
 # 📘 Selenium Xpath Guide
 
@@ -182,3 +184,111 @@ WebElement parentDiv = driver.findElement(By.xpath("//label[@for='email']//paren
 * Combine attributes with `and`/`or` for precise targeting.
 * Use developer tools (F12) to test and verify Xpaths in the browser.
 ----------------------------------------------------------------------------------------------------
+
+
+------------ Xpath axes methods (descendant, descendant-or-self)
+
+- decendant: it selects all of the decendants (children, grandchildren, etc) of context (current ) node
+- //tagname[@attribute='value']//descendant::tagname
+
+- descendant-or-self: it selects context (current) node and all of its descendant like (children, grandchildren, etc.)
+it tagname for descendants and self are same
+- //tagname[@attribute='value']//descendant-or-self::tagname
+
+
+
+
+------------ Xpath axes methods (ancestor, ancestor-or-self)
+
+- ancestor: it selects all of the ancestors (parent, grandparent, etc) of contect (current) node
+- //tagname[@attribute='value']//ancestor::tagname
+
+- ancestor-or-self: it selects contect(current) node and all of its ancestors like (parent, grandparents, etc)
+if tagname for ancestor and self are same.
+- //tagname[@attribute='value']//ancestor-or-self::tagname
+
+
+
+
+
+------------ Xpath axes methods (following, following-siblings)
+
+- following: it selects all the nodes that appear after the contect (current) node
+//tagname[@attribute='value']//following::tagname
+
+- following-sibling : it selects all the nodes that have the same parent as teh context ( current) node and
+appear after teh contect ( current) node
+//tagname[@attribute='value']//following-sibling::tagname
+
+
+
+
+
+
+------------ Xpath axes methods (preceding, preceding-sibling)
+
+- preceding: it selects all nodes that appear before the context ( current) node
+//tagname[@attribute='value']//preceding::tagname
+
+
+- preceding-sibling: it selects all the nodes that have the same parent as the context ( current)
+node and appear before the context ( current) node
+//tagname[@attribute='value']//preceding-sibling::tagname
+
+
+
+
+
+
+------------ What is CSS and CSS SELECTOR
+
+
+syntax: tagname[attributeName='attributeValue]
+Example: input[id=first_name]
+
+
+- Css selector: Select by ID
+    - syntax: tagname#elementID
+    - example: input#first_name
+
+
+- CSS selector: class attribute
+    - syntax: tagname.elementID
+    - example: input.signUp
+
+
+- CSS selector: webElement attributes (type, placeholder, value, etc)
+    - syntax: tagname[attributeName='attributevalue']
+    - example: input[value='sign me up']
+
+
+- CSS selector: Advanced css selectors ( using mix of tag, id and classname)
+
+syntax: tagname.classvalue[attributeName='attributeValue]
+        tagname.#idValue[attributeName='attributeValue']
+
+examples: input.signup[type='submit'][value='sign me up']
+          input#submit_btn[type='submit'][value='sigin me up]
+
+
+
+
+- CSS selector: sub-string
+
+    - sub-string matches are very helpful in identifying dinamic webelements with the help of partial string matches
+    - The 3 important special characters in css sub-string selectors are:
+
+    - '^' sign - signify's  the prefix of the text
+    - Example: input[name^='country_c']
+    - '$' sign - signify's the suffix of the text
+    - Example: input[name$='y_client']
+    - '*' sign - signify's the sub-string of the text
+    - Example: input[name*='try_cl']
+
+
+
+
+
+
+
+
