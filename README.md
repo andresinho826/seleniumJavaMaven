@@ -184,111 +184,167 @@ WebElement parentDiv = driver.findElement(By.xpath("//label[@for='email']//paren
 * Combine attributes with `and`/`or` for precise targeting.
 * Use developer tools (F12) to test and verify Xpaths in the browser.
 ----------------------------------------------------------------------------------------------------
+Xpath Axes Methods
 
 
------------- Xpath axes methods (descendant, descendant-or-self)
+Descendant and Descendant-or-Self
+Descendant: Selecciona todos los descendientes (hijos, nietos, etc.) del nodo actual.
 
-- decendant: it selects all of the decendants (children, grandchildren, etc) of context (current ) node
-- //tagname[@attribute='value']//descendant::tagname
+Ejemplo: //tagname[@attribute='value']//descendant::tagname
 
-- descendant-or-self: it selects context (current) node and all of its descendant like (children, grandchildren, etc.)
-it tagname for descendants and self are same
-- //tagname[@attribute='value']//descendant-or-self::tagname
+Descendant-or-Self: Selecciona el nodo actual y todos sus descendientes.
 
+Ejemplo: //tagname[@attribute='value']//descendant-or-self::tagname
 
+Ancestor and Ancestor-or-Self
+Ancestor: Selecciona todos los ancestros (padres, abuelos, etc.) del nodo actual.
 
+Ejemplo: //tagname[@attribute='value']//ancestor::tagname
 
------------- Xpath axes methods (ancestor, ancestor-or-self)
+Ancestor-or-Self: Selecciona el nodo actual y todos sus ancestros.
 
-- ancestor: it selects all of the ancestors (parent, grandparent, etc) of contect (current) node
-- //tagname[@attribute='value']//ancestor::tagname
+Ejemplo: //tagname[@attribute='value']//ancestor-or-self::tagname
 
-- ancestor-or-self: it selects contect(current) node and all of its ancestors like (parent, grandparents, etc)
-if tagname for ancestor and self are same.
-- //tagname[@attribute='value']//ancestor-or-self::tagname
+Following and Following-Sibling
+Following: Selecciona todos los nodos que aparecen después del nodo actual.
 
+Ejemplo: //tagname[@attribute='value']//following::tagname
 
+Following-Sibling: Selecciona todos los nodos que tienen el mismo padre que el nodo actual y aparecen después de él.
 
+Ejemplo: //tagname[@attribute='value']//following-sibling::tagname
 
+Preceding and Preceding-Sibling
+Preceding: Selecciona todos los nodos que aparecen antes del nodo actual.
 
------------- Xpath axes methods (following, following-siblings)
+Ejemplo: //tagname[@attribute='value']//preceding::tagname
 
-- following: it selects all the nodes that appear after the contect (current) node
-//tagname[@attribute='value']//following::tagname
+Preceding-Sibling: Selecciona todos los nodos que tienen el mismo padre que el nodo actual y aparecen antes de él.
 
-- following-sibling : it selects all the nodes that have the same parent as teh context ( current) node and
-appear after teh contect ( current) node
-//tagname[@attribute='value']//following-sibling::tagname
+Ejemplo: //tagname[@attribute='value']//preceding-sibling::tagname
 
+CSS Selector Basics
+Syntax and Examples
+Tagname and Attribute Selector:
 
+Sintaxis: tagname[attributeName='attributeValue']
 
+Ejemplo: input[id='first_name']
 
+ID Selector
+Sintaxis: tagname#elementID
 
+Ejemplo: input#first_name
 
------------- Xpath axes methods (preceding, preceding-sibling)
+Class Selector
+Sintaxis: tagname.className
 
-- preceding: it selects all nodes that appear before the context ( current) node
-//tagname[@attribute='value']//preceding::tagname
+Ejemplo: input.signUp
 
+Attribute Selector
+Sintaxis: tagname[attributeName='attributeValue']
 
-- preceding-sibling: it selects all the nodes that have the same parent as the context ( current)
-node and appear before the context ( current) node
-//tagname[@attribute='value']//preceding-sibling::tagname
+Ejemplo: input[value='sign me up']
 
+Advanced CSS Selectors
+Uso avanzado combinando etiquetas, IDs y clases.
 
+Ejemplo: input.signup[type='submit'][value='sign me up']
 
+Sub-string Selector
+Coincidencias de sub-cadenas para identificar elementos dinámicos.
 
+Caracteres especiales: ^, $, *.
 
+Ejemplos:
 
------------- What is CSS and CSS SELECTOR
+input[name^='country_c'] (prefijo)
 
+input[name$='y_client'] (sufijo)
 
-syntax: tagname[attributeName='attributeValue]
-Example: input[id=first_name]
-
-
-- Css selector: Select by ID
-    - syntax: tagname#elementID
-    - example: input#first_name
-
-
-- CSS selector: class attribute
-    - syntax: tagname.elementID
-    - example: input.signUp
-
-
-- CSS selector: webElement attributes (type, placeholder, value, etc)
-    - syntax: tagname[attributeName='attributevalue']
-    - example: input[value='sign me up']
-
-
-- CSS selector: Advanced css selectors ( using mix of tag, id and classname)
-
-syntax: tagname.classvalue[attributeName='attributeValue]
-        tagname.#idValue[attributeName='attributeValue']
-
-examples: input.signup[type='submit'][value='sign me up']
-          input#submit_btn[type='submit'][value='sigin me up]
+input[name*='try_cl'] (sub-cadena)
 
 
 
 
-- CSS selector: sub-string
+----------------------------------------------------------------------------------------------------
 
-    - sub-string matches are very helpful in identifying dinamic webelements with the help of partial string matches
-    - The 3 important special characters in css sub-string selectors are:
+FINDING CHILD OR SUBCHILD ELEMENTS
 
-    - '^' sign - signify's  the prefix of the text
-    - Example: input[name^='country_c']
-    - '$' sign - signify's the suffix of the text
-    - Example: input[name$='y_client']
-    - '*' sign - signify's the sub-string of the text
-    - Example: input[name*='try_cl']
+- direct child
+  - child combinator (>) is used to select direct child
+  - syntax: tagname[attributeName='attributeValue'] > tagname[attributeName='attributeValue']
+  - example: select#country > option[value='AU']
+
+- child or subchild
+  - descendant combinator () is used to select child or subchild
+  - syntax: tagname[attributeName='attributeValue'] tagname[attributeName='attributeValue']
+  - example: form#deorg_for div
 
 
 
 
 
+CSS SELECTOR - NEXT SIBLING
+
+- sibling elements are located using the (+) operator
+- adjacent sibling combinator (+) separates two CSS selectors and matches the second web elemnet only if
+it inmediadiately follows the first webelement, and both are the child of same parent webelement.
+
+
+- format:
+    tagNmae[attributeName='attributeValue']+tagname[attributeName='attributeValue']
 
 
 
+
+CSS SELETOR PSEUDO-CLASSES (FIRST-CHILD, LAST-CHILD, NTH-CHILD, NTH-LAST-CHILD)
+
+- A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected webelement
+
+- first-child: returns first element from the group of sibling elements
+  - select#job_role>:first-child
+  
+- last-child: returns last element from the group fo sibling elements
+  - select#job_role>:last-child
+
+- nth-child(): returns elements based on their position in a group of siblings
+  - select#job_role>:nth-child(4)
+  
+- nth-las-child(): returns elements based on their position among a group of siblings, counting from the end.
+  - select#job_role>:nth-last-child(2)
+
+
+
+
+
+
+
+CSS SELECTOR PSEUDO-CLASSES CONT. (first-of-type, last-of-type, nth-of-type())
+
+- first-of-type: returns the first element of its type among a group of sibling elements
+  - form#deorg_form>input:first-of-type
+- last-of-type: returns the last element of its type among a group of sibling elements
+  - form#deorg_form>input:last-of-type
+- nth-of-type: matches elements of a given type, based on their position among a group of siblings.
+  - form#deorg_form>input:nth-of-type
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+BASIC METHODS IN WEBDRIVER INTERFACE
+
+- get()
+- manage()  - gets the options interface
+- getcurrentURL() - get a string representing the current URL that the browser is lookign at
+- getTitle()
+- getPageSource() - get the source of the last loaded page
+- navigate() - an abstraction allowing the driver to access the browser's history and to navigate to a given URL
+- quit() - closing every associated window
+- close() - close the current window.
