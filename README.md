@@ -340,6 +340,8 @@ CSS SELECTOR PSEUDO-CLASSES CONT. (first-of-type, last-of-type, nth-of-type())
 
 BASIC METHODS IN WEBDRIVER INTERFACE
 
+      Part 01 
+
 - get()
 - manage()  - gets the options interface
 - getcurrentURL() - get a string representing the current URL that the browser is lookign at
@@ -348,3 +350,33 @@ BASIC METHODS IN WEBDRIVER INTERFACE
 - navigate() - an abstraction allowing the driver to access the browser's history and to navigate to a given URL
 - quit() - closing every associated window
 - close() - close the current window.
+
+      Part 02
+
+- getWindowHandle() - returns an opaque handle to this window that uniquely idenfifies it within this driver instance.
+- getWindowHandles()
+- swithTo()
+- findElement(By by) - find the first webelement using the given method
+- findElements(By by) - find all elements within the curren page using the given mechanism
+
+
+
+
+
+
+
+WORKING WITH WEBELEMENTS IN SELENIUM WEBDRIVER
+
+
+- sendkeys()
+- clear()
+- click()
+- getAttribute() - get the value of the given attribute of teh element
+- getCSSvalue() - get the value of a given css property
+- getLocation() - where on teh page is the top left-hand corner of the rendered element?
+- getSize()
+- getTagName()
+- getText()
+- isDisplayed()
+- isEnabled()
+- isSelected()
